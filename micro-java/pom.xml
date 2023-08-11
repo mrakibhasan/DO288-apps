@@ -14,6 +14,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <quarkus-plugin.version>1.11.6.Final-redhat-00001</quarkus-plugin.version>
     <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
+    <jkube.build.switchToDeployment>true</jkube.build.switchToDeployment>
     <quarkus.platform.group-id>com.redhat.quarkus</quarkus.platform.group-id>
     <quarkus.platform.version>1.11.6.Final-redhat-00001</quarkus.platform.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
@@ -106,6 +107,11 @@
         </configuration>
       </plugin>
       <!-- Adding the jkube plugin configuration here -->
+      <plugin>
+	  <groupId>org.eclipse.jkube</groupId>
+	  <artifactId>openshift-maven-plugin</artifactId>
+	  <version>1.2.0</version>
+      </plugin>
     </plugins>
   </build>
   <profiles>
@@ -136,8 +142,8 @@
                 </configuration>
               </execution>
             </executions>
-          </plugin>
-        </plugins>
+    	  </plugin>
+	 </plugins>
       </build>
       <properties>
         <quarkus.package.type>native</quarkus.package.type>
